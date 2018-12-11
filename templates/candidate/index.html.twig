@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Candidate index{% endblock %}
+
+{% block body %}
+    <h1>Candidate index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Note</th>
+                <th>Job_title</th>
+                <th>Job_description</th>
+                <th>In_post</th>
+                <th>Avatar</th>
+                <th>CV</th>
+                <th>CreatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for candidate in candidates %}
+            {% set cv = '' %}
+            {% if candidate.cv|length > 0 %}
+                {% set cvLast = candidate.cv|last %}
+                {% set cv = cvLast.filename %}
+            {% endif %}
+            <tr>
+                <td>{{ candidate.id }}</td>
+                <td>{{ candidate.firstname }}</td>
+                <td>{{ candidate.lastname }}</td>
+                <td>{{ candidate.note }}</td>
+                <td>{{ candidate.jobTitle }}</td>
+                <td>{{ candidate.jobDescription }}</td>
+                <td>{{ candidate.inPost ? 'Yes' : 'No' }}</td>
+                <td>{{ candidate.avatar }}</td>
+                <td>{{ cv }}</td>
+                <td>{{ candidate.createdAt ? candidate.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('candidate_show', {'id': candidate.id}) }}">show</a>
+                    <a href="{{ path('candidate_edit', {'id': candidate.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('candidate_new') }}">Create new</a>
+{% endblock %}

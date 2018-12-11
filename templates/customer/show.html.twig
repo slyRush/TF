@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Customer{% endblock %}
+
+{% block body %}
+    <h1>Customer</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ customer.id }}</td>
+            </tr>
+            <tr>
+                <th>Company_name</th>
+                <td>{{ customer.companyName }}</td>
+            </tr>
+            <tr>
+                <th>Company_description</th>
+                <td>{{ customer.companyDescription }}</td>
+            </tr>
+            <tr>
+                <th>Manager_fullname</th>
+                <td>{{ customer.managerFullname }}</td>
+            </tr>
+            <tr>
+                <th>Manager_tel</th>
+                <td>{{ customer.managerTel }}</td>
+            </tr>
+            <tr>
+                <th>Manager_linkedin</th>
+                <td>{{ customer.managerLinkedin }}</td>
+            </tr>
+            <tr>
+                <th>Manager_fb</th>
+                <td>{{ customer.managerFb }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ customer.createdAt ? customer.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ customer.updatedAt ? customer.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('customer_index') }}">back to list</a>
+
+    <a href="{{ path('customer_edit', {'id': customer.id}) }}">edit</a>
+
+    {{ include('customer/_delete_form.html.twig') }}
+{% endblock %}

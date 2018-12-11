@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -12,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class CandidateCustomer
 {
     use TimestampableEntity;
+    use SoftDeleteableEntity;
 
     /**
      * @ORM\Id()
@@ -40,7 +42,7 @@ class CandidateCustomer
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Customer", inversedBy="cc")
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
-     * */
+     */
     protected $customer;
 
     public function getId(): ?int

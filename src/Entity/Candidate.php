@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -14,6 +16,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 class Candidate
 {
     use TimestampableEntity;
+    use SoftDeleteableEntity;
 
     /**
      * @ORM\Id()
@@ -55,26 +58,49 @@ class Candidate
     private $in_post;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\File(
+     *     maxSize = "5M",
+     *     mimeTypes={"image/*"},
+     *     mimeTypesMessage = "Veuillez télécharger une image valide !"
+     * )
+     */
+    private $avatar;
+
+    /**
      * @var $level
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Level", inversedBy="candidate", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $level;
 
-    /* @var $cv
+    /**
+     * @var $cv
      *
-     * @ORM\OneToOne(targetEntity="App\Entity\CurriculumVitae", mappedBy="candidate", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="App\Entity\CurriculumVitae", mappedBy="candidate", cascade={"persist", "remove"})
      */
     private $cv;
 
     /**
+     * @var $cc
+     *
      * @ORM\OneToMany(targetEntity="App\Entity\CandidateCustomer", mappedBy="candidate", cascade={"persist"})
-     * */
-    protected $cc;
+     */
+    private $cc;
+
+    /**
+     * @var $campaignCandidate
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\CampaignCandidate", mappedBy="candidate", cascade={"persist"})
+     */
+    private $campaignCandidate;
 
     public function __construct()
     {
         $this->cc = new ArrayCollection();
+        $this->cv = new ArrayCollection();
+        $this->campaignCandidate = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -191,6 +217,85 @@ class Candidate
             // set the owning side to null (unless already changed)
             if ($cc->getCandidate() === $this) {
                 $cc->setCandidate(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function setCv(?object $cv): self
+    {
+        return $this;
+    }
+
+    /**
+     * @return Collection|CurriculumVitae[]
+     */
+    public function getCv(): Collection
+    {
+        return $this->cv;
+    }
+
+    public function addCv(CurriculumVitae $cv): self
+    {
+        if (!$this->cv->contains($cv)) {
+            $this->cv[] = $cv;
+            $cv->setCandidate($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCv(CurriculumVitae $cv): self
+    {
+        if ($this->cv->contains($cv)) {
+            $this->cv->removeElement($cv);
+            // set the owning side to null (unless already changed)
+            if ($cv->getCandidate() === $this) {
+                $cv->setCandidate(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CampaignCandidate[]
+     */
+    public function getCampaignCandidate(): Collection
+    {
+        return $this->campaignCandidate;
+    }
+
+    public function addCampaignCandidate(CampaignCandidate $campaignCandidate): self
+    {
+        if (!$this->campaignCandidate->contains($campaignCandidate)) {
+            $this->campaignCandidate[] = $campaignCandidate;
+            $campaignCandidate->setCandidate($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCampaignCandidate(CampaignCandidate $campaignCandidate): self
+    {
+        if ($this->campaignCandidate->contains($campaignCandidate)) {
+            $this->campaignCandidate->removeElement($campaignCandidate);
+            // set the owning side to null (unless already changed)
+            if ($campaignCandidate->getCandidate() === $this) {
+                $campaignCandidate->setCandidate(null);
             }
         }
 

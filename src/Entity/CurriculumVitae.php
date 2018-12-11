@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -12,6 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class CurriculumVitae
 {
     use TimestampableEntity;
+    use SoftDeleteableEntity;
 
     /**
      * @ORM\Id()
@@ -26,9 +30,11 @@ class CurriculumVitae
      */
     private $filename;
 
-    /* @var $candidate
+    /**
+     * @var $candidate
      *
-     * @ORM\OneToOne(targetEntity="App\Entity\Candidate", inversedBy="cv", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Candidate", inversedBy="cv")
+     * @ORM\JoinColumn(referencedColumnName="id", nullable=true)
      */
     private $candidate;
 
@@ -45,6 +51,18 @@ class CurriculumVitae
     public function setFilename(string $filename): self
     {
         $this->filename = $filename;
+
+        return $this;
+    }
+
+    public function getCandidate(): ?Candidate
+    {
+        return $this->candidate;
+    }
+
+    public function setCandidate(?Candidate $candidate): self
+    {
+        $this->candidate = $candidate;
 
         return $this;
     }
