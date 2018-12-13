@@ -3,12 +3,22 @@
 namespace App\Form;
 
 use App\Entity\Campaign;
+use App\Entity\Customer;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class CampaignType
+ * @package App\Form
+ */
 class CampaignType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -16,13 +26,16 @@ class CampaignType extends AbstractType
             ->add('description')
             ->add('moneyIn')
             ->add('moneyOut')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('deletedAt')
-            ->add('customer')
+            ->add('customer', EntityType::class, [
+                'class' => Customer::class,
+                'choice_label' => 'companyName'
+            ])
         ;
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
