@@ -16,6 +16,10 @@ class FileUploader
      */
     private $targetDirectory;
 
+    /**
+     * FileUploader constructor.
+     * @param string $targetDirectory
+     */
     public function __construct($targetDirectory)
     {
         $this->targetDirectory = $targetDirectory;
@@ -23,17 +27,18 @@ class FileUploader
 
     /**
      * @param UploadedFile $file
-     * @param string $prefix
-     * @param string $folder
+     * @param string       $prefix
+     * @param string       $folder
      * @return string
+     * @throws \Exception
      */
     public function upload(UploadedFile $file, string $prefix, string $folder): string
     {
-        $fileName = $prefix.substr(md5(uniqid(random_int(1, 6), true)), 0, 5).
-            '_'.$file->getClientOriginalName();
+        $fileName = $prefix . substr(md5(uniqid(random_int(1, 6), true)), 0, 5) .
+            '_' . $file->getClientOriginalName();
 
         try {
-            $file->move($this->getTargetDirectory().$folder, $fileName);
+            $file->move($this->getTargetDirectory() . $folder, $fileName);
         } catch (FileException $e) {
             throw $e;
         }

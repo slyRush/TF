@@ -1,5 +1,5 @@
 @import "~bootstrap/dist/css/bootstrap.min.css"; /* The template use Bootstrap v3.3.6 */
-@import "~@fortawesome/fontawesome-free/css/fontawesome.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
 @import "~owl.carousel/dist/assets/owl.carousel.min.css";
 @import "~owl.carousel/dist/assets/owl.theme.default.min.css";
 @import "./templatemo-style.css";

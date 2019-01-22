@@ -20,27 +20,27 @@ namespace App\Constant;
 class DocumentType
 {
     /**
-     * @var string CV_PREFIX 
+     * @var string CV_PREFIX
      */
     public const CV_PREFIX = 'CV_';
     /**
-     * @var string CV_FOLDER 
+     * @var string CV_FOLDER
      */
     public const CV_FOLDER = '/curriculum_vitae';
     /**
-     * @var string AVATAR_PREFIX 
+     * @var string AVATAR_PREFIX
      */
     public const AVATAR_PREFIX = 'AVATAR_';
     /**
-     * @var string AVATAR_FOLDER 
+     * @var string AVATAR_FOLDER
      */
     public const AVATAR_FOLDER = '/avatar';
     /**
-     * @var string CUSTOMER_LOGO_PREFIX 
+     * @var string CUSTOMER_LOGO_PREFIX
      */
     public const CUSTOMER_LOGO_PREFIX = 'C_LOGO_';
     /**
-     * @var string CUSTOMER_LOGO_FOLDER 
+     * @var string CUSTOMER_LOGO_FOLDER
      */
     public const CUSTOMER_LOGO_FOLDER = '/customer_logo';
 }

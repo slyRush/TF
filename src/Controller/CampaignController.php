@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Campaign;
 use App\Form\CampaignType;
 use App\Manager\CampaignManager;
-use App\Repository\CampaignRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +17,9 @@ class CampaignController extends AbstractController
 {
     /**
      * @Route("/", name="campaign_index", methods="GET")
+     *
      * @param CampaignManager $campaignManager
+     *
      * @return Response
      */
     public function index(CampaignManager $campaignManager): Response
@@ -31,8 +32,10 @@ class CampaignController extends AbstractController
 
     /**
      * @Route("/new", name="campaign_new", methods="GET|POST")
-     * @param Request $request
+     *
+     * @param Request         $request
      * @param CampaignManager $campaignManager
+     *
      * @return Response
      */
     public function new(Request $request, CampaignManager $campaignManager): Response
@@ -55,7 +58,9 @@ class CampaignController extends AbstractController
 
     /**
      * @Route("/{id}", name="campaign_show", methods="GET")
+     *
      * @param Campaign $campaign
+     *
      * @return Response
      */
     public function show(Campaign $campaign): Response
@@ -65,9 +70,11 @@ class CampaignController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="campaign_edit", methods="GET|POST")
-     * @param Request $request
-     * @param Campaign $campaign
+     *
+     * @param Request         $request
+     * @param Campaign        $campaign
      * @param CampaignManager $campaignManager
+     *
      * @return Response
      */
     public function edit(Request $request, Campaign $campaign, CampaignManager $campaignManager): Response
@@ -89,13 +96,15 @@ class CampaignController extends AbstractController
 
     /**
      * @Route("/{id}", name="campaign_delete", methods="DELETE")
-     * @param Request $request
+     *
+     * @param Request  $request
      * @param Campaign $campaign
+     *
      * @return Response
      */
     public function delete(Request $request, Campaign $campaign): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$campaign->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $campaign->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($campaign);
             $em->flush();

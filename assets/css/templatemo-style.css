@@ -118,7 +118,7 @@ https://templatemo.com/tm-516-known
   }
 
   .entry-form {
-    background: #252020;
+    background: #2C3E50;
     border-radius: 100%;
     text-align: center;
     padding: 6em;
@@ -139,13 +139,14 @@ https://templatemo.com/tm-516-known
     box-shadow: none;
     height: 45px;
     margin: 10px 0;
+    color: #ffffff;
   }
 
   .entry-form .submit-btn {
     background: #ffffff;
     border-radius: 50px;
     border: 0;
-    color: #252020;
+    color: #2C3E50;
     width: 50%;
     height: 50px;
     margin: 30px auto;
@@ -163,12 +164,12 @@ https://templatemo.com/tm-516-known
   }
 
   #team,
-  #testimonial {
+  #posts {
     background: #f9f9f9;
   }
 
   #team, 
-  #testimonial {
+  #posts {
     text-align: center;
   }
   
@@ -259,7 +260,7 @@ https://templatemo.com/tm-516-known
   .custom-navbar {
     background: #ffffff;
     /*border-top: 5px solid #29ca8e;*/
-    border-top: 3px solid #2C3E50;
+    border-top: 1px solid #29B6F6;
     border-bottom: 0;
     -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
@@ -279,11 +280,14 @@ https://templatemo.com/tm-516-known
 
   .custom-navbar .navbar-nav.navbar-nav-first {
     margin-left: 8em;
+    /*border-right: #c3c3c3 2px solid;*/
   }
 
   .custom-navbar .navbar-nav.navbar-right li a {
     padding-right: 12px;
     padding-left: 12px;
+    font-weight: normal;
+    font-size: 14px;
   }
 
   .custom-navbar .navbar-nav.navbar-right li a .fa {
@@ -346,10 +350,13 @@ https://templatemo.com/tm-516-known
 
   #home h1 {
     color: #ffffff;
+    background-color: #2C3E50;
+    padding: 20px;
   }
 
   #home h3 {
-    color: #f9f9f9;
+    /*color: #f9f9f9;*/
+    color: #ffffff;
     font-size: 16px;
     font-weight: 300;
     margin: 0;
@@ -384,6 +391,8 @@ https://templatemo.com/tm-516-known
   .caption h3 a:hover { color: #FF3; }
 
   .home-slider .item-first {
+    /*background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("../images/slider-1.jpg");*/
+    /*background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7));*/
     background-image: url(../images/slider-1.jpg);
 	background-position: center;
   }
@@ -431,13 +440,13 @@ https://templatemo.com/tm-516-known
       ABOUT              
   -----------------------------------------*/
 
-  #about figure {
+  #depose-cv figure {
     display: inline-block;
     vertical-align: top;
     margin-left: 15px;
   }
 
-  #about figure span {
+  #depose-cv figure span {
     float: left;
     margin-left: -15px;
     padding: 15px 20px;
@@ -445,8 +454,8 @@ https://templatemo.com/tm-516-known
     top: 20px;
   }
 
-  #about figure span i {
-    background: #29ca8e;
+  #depose-cv figure span i {
+    background: #2C3E50;
     border-radius: 50px;
     color: #ffffff;
     font-size: 25px;
@@ -496,15 +505,15 @@ https://templatemo.com/tm-516-known
       COURSES             
   -----------------------------------------*/
 
-  #courses .section-title {
+  #job-list .section-title {
     text-align: center;
   }
 
-  #courses .owl-theme .owl-nav {
+  #job-list .owl-theme .owl-nav {
     margin-top: 30px;
   }
 
-  #courses .owl-theme .owl-nav [class*=owl-] {
+  #job-list .owl-theme .owl-nav [class*=owl-] {
     border-radius: 2px;
     font-size: 16px;
     width: 30px;
@@ -628,20 +637,20 @@ https://templatemo.com/tm-516-known
       TESTIMONIAL             
   -----------------------------------------*/
 
-  #testimonial .item {
+  #posts .item {
     background: #ffffff;
     margin: 20px 0;
     padding: 4em 3em;
     text-align: left;
   }
 
-  #courses .col-md-4,
-  #testimonial .col-md-4 {
+  #job-list .col-md-4,
+  #posts .col-md-4 {
     display: block;
     width: 100%;
   }
 
-  #testimonial .item > p {
+  #posts .item > p {
     font-size: 16px;
     line-height: 26px;
   }
@@ -742,7 +751,8 @@ https://templatemo.com/tm-516-known
 
   footer {
     background: #252020;
-    padding: 120px 0;
+    padding: 60px 0;
+    /*padding: 120px 0;*/
   }
 
   footer .section-title {
@@ -756,6 +766,10 @@ https://templatemo.com/tm-516-known
   footer a,
   footer p {
     color: #909090;
+  }
+
+  footer a:hover {
+    color: #29B6F6;
   }
 
   footer strong {
@@ -802,6 +816,7 @@ https://templatemo.com/tm-516-known
     border-bottom: 1px solid #303030;
     height: 50px;
     margin: 5px 0;
+    color: #ffffff;
   }
 
   .newsletter-form input[type="submit"] {
@@ -816,7 +831,8 @@ https://templatemo.com/tm-516-known
   }
 
   .newsletter-form input[type="submit"]:hover {
-    background: #29ca8e;
+    /*background: #29ca8e;*/
+    background: #29B6F6;
     border-color: transparent;
   }
 
@@ -847,7 +863,8 @@ https://templatemo.com/tm-516-known
 
   .social-icon li a {
     border-radius: 100px;
-    color: #29ca8e;
+    /*color: #29ca8e;*/
+    color: #29B6F6;
     font-size: 15px;
     width: 35px;
     height: 35px;
@@ -860,7 +877,8 @@ https://templatemo.com/tm-516-known
   }
 
   .social-icon li a:hover {
-    background: #29ca8e;
+    /*background: #29ca8e;*/
+    background: #29B6F6;
     color: #ffffff;
   }
 
@@ -968,7 +986,7 @@ https://templatemo.com/tm-516-known
       font-size: 1.8em;
     }
 
-    #testimonial .item {
+    #posts .item {
       padding: 2em;
     }
 
@@ -995,4 +1013,94 @@ https://templatemo.com/tm-516-known
       height: inherit;
     }
   }
-  
+
+section{
+  padding: 60px 0;
+}
+section .section-title-custom {
+  text-align:center;
+  color:#29B6F6;
+  /*margin-bottom:50px;*/
+  text-transform:uppercase;
+}
+#what-we-do{
+  background:#ffffff;
+}
+#what-we-do .card{
+  padding: 1rem!important;
+  border: none;
+  margin-bottom:1rem;
+  -webkit-transition: .5s all ease;
+  -moz-transition: .5s all ease;
+  transition: .5s all ease;
+}
+#what-we-do .card:hover{
+  -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+  -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+  box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+}
+#what-we-do .card .card-block{
+  padding-left: 50px;
+  position: relative;
+}
+#what-we-do .card .card-block a{
+  color: #29B6F6 !important;
+  font-weight:700;
+  text-decoration:none;
+}
+#what-we-do .card .card-block a i{
+  display:none;
+
+}
+#what-we-do .card .card-block h3{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+#what-we-do .card:hover .card-block a i{
+  display:inline-block;
+  font-weight:700;
+
+}
+#what-we-do .card .card-block:before{
+  font-family: FontAwesome;
+  position: absolute;
+  font-size: 39px;
+  color: #29B6F6;
+  left: 0;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  transition:transform .2s ease-in-out;
+}
+#what-we-do .card .block-1:before{
+  content: "\f0e7";
+}
+#what-we-do .card .block-2:before{
+  content: "\f0eb";
+}
+#what-we-do .card .block-3:before{
+  content: "\f00c";
+}
+#what-we-do .card .block-4:before{
+  content: "\f209";
+}
+#what-we-do .card .block-5:before{
+  content: "\f0a1";
+}
+#what-we-do .card .block-6:before{
+  content: "\f218";
+}
+#what-we-do .card:hover .card-block:before{
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transition: .5s all ease;
+  -moz-transition: .5s all ease;
+  transition: .5s all ease;
+}
+
+#logo {
+  background-image: url(../images/logo-v1.png);
+  background-repeat: no-repeat;
+  background-size: 133px 68px;
+  width: 200px;
+  height: 60px;
+  /*background-position: center;*/
+}

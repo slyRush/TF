@@ -4,24 +4,19 @@ namespace App\Controller;
 
 use App\Constant\DocumentType;
 use App\Entity\Candidate;
-use App\Entity\CurriculumVitae;
 use App\Form\CandidateType;
 use App\Manager\CandidateManager;
 use App\Manager\CVManager;
-use App\Repository\CandidateRepository;
 use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class CandidateController
- * @package App\Controller
+ * Class CandidateController.
  *
  * @Route("/candidate")
  */
@@ -29,7 +24,9 @@ class CandidateController extends AbstractController
 {
     /**
      * @Route("/", name="candidate_index", methods="GET")
+     *
      * @param CandidateManager $candidateManager
+     *
      * @return Response
      */
     public function index(CandidateManager $candidateManager): Response
@@ -42,11 +39,15 @@ class CandidateController extends AbstractController
 
     /**
      * @Route("/new", name="candidate_new", methods="GET|POST")
-     * @param Request $request
-     * @param FileUploader $fileUploader
+     *
+     * @param Request          $request
+     * @param FileUploader     $fileUploader
      * @param CandidateManager $candidateManager
-     * @param CVManager $CVManager
+     * @param CVManager        $CVManager
+     *
      * @return Response
+     *
+     * @throws \Exception
      */
     public function new(
         Request $request,
@@ -73,7 +74,9 @@ class CandidateController extends AbstractController
 
     /**
      * @Route("/{id}", name="candidate_show", methods="GET")
+     *
      * @param Candidate $candidate
+     *
      * @return Response
      */
     public function show(Candidate $candidate): Response
@@ -83,12 +86,16 @@ class CandidateController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="candidate_edit", methods="GET|POST")
-     * @param Request $request
-     * @param Candidate $candidate
+     *
+     * @param Request          $request
+     * @param Candidate        $candidate
      * @param CandidateManager $candidateManager
-     * @param FileUploader $fileUploader
-     * @param CVManager $CVManager
+     * @param FileUploader     $fileUploader
+     * @param CVManager        $CVManager
+     *
      * @return Response
+     *
+     * @throws \Exception
      */
     public function edit(
         Request $request,
@@ -116,13 +123,15 @@ class CandidateController extends AbstractController
 
     /**
      * @Route("/{id}", name="candidate_delete", methods="DELETE")
-     * @param Request $request
+     *
+     * @param Request   $request
      * @param Candidate $candidate
+     *
      * @return Response
      */
     public function delete(Request $request, Candidate $candidate): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$candidate->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $candidate->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($candidate);
             $em->flush();
@@ -133,10 +142,12 @@ class CandidateController extends AbstractController
 
     /**
      * @param FormInterface $form
-     * @param FileUploader $fileUploader
-     * @param Candidate $candidate
-     * @param CVManager $CVManager
-     * @param string|null $avatar
+     * @param FileUploader  $fileUploader
+     * @param Candidate     $candidate
+     * @param CVManager     $CVManager
+     * @param string|null   $avatar
+     *
+     * @throws \Exception
      */
     private function processUpload(
         FormInterface $form,
@@ -144,8 +155,7 @@ class CandidateController extends AbstractController
         Candidate $candidate,
         CVManager $CVManager,
         string $avatar = null
-    ): void
-    {
+    ): void {
         /** @var UploadedFile|null $avatarFile */
         $avatarFile = $form['avatar']->getData();
         if ($avatarFile instanceof UploadedFile) {

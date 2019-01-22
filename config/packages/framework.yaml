@@ -1,4 +1,7 @@
 framework:
+    templating:
+        engines: ['twig', 'php']
+    translator: ~
     assets:
 #        json_manifest_path: '%kernel.root_dir%/public/build/'
     secret: '%env(APP_SECRET)%'

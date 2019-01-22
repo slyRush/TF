@@ -590,11 +590,6 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@fortawesome/fontawesome-free@^5.6.1":
-  version "5.6.1"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.6.1.tgz#eb096a49446d649bdc8c90f04400306eff7c33c2"
-  integrity sha512-0afQfB+HBeJHlXPzcF2Jjh78SbwPSkDjba/O7pZFzAW3WGKNzd4s4AqrZo7oIlMWGnfoyDo8+QeosK0+DTDrTg==
-
 "@symfony/webpack-encore@^0.22.0":
   version "0.22.2"
   resolved "https://registry.yarnpkg.com/@symfony/webpack-encore/-/webpack-encore-0.22.2.tgz#036cffc86e2f4da2a194b5eabc2409c4ffe0d31b"
@@ -2580,6 +2575,11 @@ follow-redirects@^1.0.0:
   integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
   dependencies:
     debug "=3.1.0"
+
+font-awesome@^4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
+  integrity sha1-j6jPBBGhoxr9B7BtKQK7n8gVoTM=
 
 for-in@^1.0.2:
   version "1.0.2"

@@ -5,6 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     private_dir: '%kernel.project_dir%/private_directory'
+    locale: 'en'
 
 services:
     # default configuration for services in *this* file

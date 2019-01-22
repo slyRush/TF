@@ -49,7 +49,7 @@ class BaseManager
 
     /**
      * Persist and flush new entry
-     * @param $entity
+     * @param object|null $entity
      */
     public function register($entity): void
     {
