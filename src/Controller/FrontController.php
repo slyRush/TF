@@ -26,4 +26,16 @@ class FrontController extends AbstractController
             'front/index.html.twig'
         );
     }
+
+    /**
+     * @Route("/contact-us", name="front_contact_us", methods="GET")
+     *
+     * @return Response
+     */
+    public function contactUs(): Response
+    {
+        return $this->render(
+            'front/index.html.twig'
+        );
+    }
 }

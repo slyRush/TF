@@ -25,10 +25,19 @@
         {% include 'front/posts.html.twig' %}
 
         <!-- Contact -->
-        {% include 'front/contact.html.twig' %}
+        {#{% include 'front/contact.html.twig' %}#}
+
+        <!-- CONTACT -->
+        <section id="contact">
+            {{ render(controller('App\\Controller\\ContactUsEmailController::new')) }}
+        </section>
 
         <!-- Footer -->
         {% include 'front/footer.html.twig' %}
     
     </body>
 {% endblock %}
+
+{#{% block javascripts %}
+    {% include('contact_us_email/script/_form.script.html.twig') %}
+{% endblock %}#}

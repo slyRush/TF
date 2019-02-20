@@ -31,3 +31,7 @@ services:
     App\Service\FileUploader:
         arguments:
             $targetDirectory: '%private_dir%'
+
+    App\EntityListener\ContactUsEmailListener:
+        tags:
+            - { name: doctrine.event_listener, event: postPersist }

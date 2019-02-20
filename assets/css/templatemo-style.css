@@ -10,7 +10,7 @@ https://templatemo.com/tm-516-known
 
   body {
     background: #ffffff;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', sans-serif !important;
     overflow-x: hidden;
     padding-top: 70px;
   }

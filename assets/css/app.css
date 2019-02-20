@@ -1,4 +1,4 @@
-@import "~bootstrap/dist/css/bootstrap.min.css"; /* The template use Bootstrap v3.3.6 */
+@import "./bootstrap3.3.7.min.css"; /* The template use Bootstrap v3.3.6 */
 @import "~font-awesome/css/font-awesome.min.css";
 @import "~owl.carousel/dist/assets/owl.carousel.min.css";
 @import "~owl.carousel/dist/assets/owl.theme.default.min.css";

@@ -1,0 +1,4 @@
+@import "~bootstrap/dist/css/bootstrap.min.css"; /* The template use Bootstrap v3.3.6 */
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import "./nucleo.css";
+@import "./argon.css";

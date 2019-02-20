@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContactUsEmail{% endblock %}
+
+{% block body %}
+    <h1>ContactUsEmail</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact_us_email.id }}</td>
+            </tr>
+            <tr>
+                <th>FullName</th>
+                <td>{{ contact_us_email.fullName }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ contact_us_email.email }}</td>
+            </tr>
+            <tr>
+                <th>TelNumber</th>
+                <td>{{ contact_us_email.telNumber }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ contact_us_email.message }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('contact_us_email_index') }}">back to list</a>
+
+    <a href="{{ path('contact_us_email_edit', {'id': contact_us_email.id}) }}">edit</a>
+
+    {{ include('contact_us_email/_delete_form.html.twig') }}
+{% endblock %}

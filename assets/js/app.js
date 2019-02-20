@@ -11,8 +11,11 @@ require('../css/app.css');
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 var $ = require('jquery');
 
-//bootstrap
-require('bootstrap');
+//bootstrap 3.3.6
+require('./bootstrap3.3.7.min.js');
+
+//jquery form
+//require('jquery-form');
 
 //owl carousel
 require('owl.carousel');
@@ -21,6 +24,7 @@ require('owl.carousel');
 require('smoothscroll');
 
 require('./custom.js');
+require('./contact_us_email.js');
 
 
 //console.log('Hello Webpack Encore! Edit me in assets/js/app.js');

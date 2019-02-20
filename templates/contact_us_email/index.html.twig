@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContactUsEmail index{% endblock %}
+
+{% block body %}
+    <h1>ContactUsEmail index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FullName</th>
+                <th>Email</th>
+                <th>TelNumber</th>
+                <th>Message</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact_us_email in contact_us_emails %}
+            <tr>
+                <td>{{ contact_us_email.id }}</td>
+                <td>{{ contact_us_email.fullName }}</td>
+                <td>{{ contact_us_email.email }}</td>
+                <td>{{ contact_us_email.telNumber }}</td>
+                <td>{{ contact_us_email.message }}</td>
+                <td>
+                    <a href="{{ path('contact_us_email_show', {'id': contact_us_email.id}) }}">show</a>
+                    <a href="{{ path('contact_us_email_edit', {'id': contact_us_email.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('contact_us_email_new') }}">Create new</a>
+{% endblock %}

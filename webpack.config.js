@@ -18,6 +18,7 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
+    .addEntry('app_admin', './assets/js/app_admin.js')
     /*.addEntry('custom', './assets/js/custom.js')
     .enableVueLoader()*/
 

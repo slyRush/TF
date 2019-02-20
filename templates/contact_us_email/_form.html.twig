@@ -1,0 +1,23 @@
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            {{ form_widget(form.fullName) }}
+            {{ form_errors(form.fullName) }}
+
+            {{ form_widget(form.email) }}
+            {{ form_errors(form.email) }}
+
+            {{ form_widget(form.telNumber) }}
+        </div>
+        <div class="col-md-6 col-sm-6">
+            {{ form_widget(form.message) }}
+            {{ form_errors(form.message) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-sm-12" align="center">
+            <input type="submit" id="submit_contact_form" class="form-control" name="send_contact_message" value="{{ button_label|default('Envoyer') }}">
+        </div>
+    </div>
+{{ form_end(form) }}

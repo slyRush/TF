@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>{% block title %}HTC - Back office{% endblock %}</title>
+        <!-- Favicon -->
+        <link href="{{ asset('images/brand/favicon.png') }}" rel="icon" type="image/png">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+        {{ encore_entry_link_tags('app_admin') }}
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+
+        {{ encore_entry_script_tags('app_admin') }}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
